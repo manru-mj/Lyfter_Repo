@@ -1,0 +1,18 @@
+1. Cree un pseudocódigo que le pida un `precio de producto` al usuario, calcule su descuento y muestre el precio final tomando en cuenta que:
+    1. Si el precio es menor a 100, el descuento es del 2%.
+    2. Si el precio es mayor o igual a 100, el descuento es del 10%.
+    3. *Ejemplos*:
+        1. 120 → 108
+        2. 40 → 39.2
+- Resolución
+    1. Inicio
+    2. Definir `precio_producto`
+    3. Mostrar “Ingrese el precio a consultar: ”
+    4. Pedir `precio_producto`
+    5. Mostrar “El precion final es: “
+    6. Si (`precio_producto` ≥ 100) entonces
+        1. Mostrar `precio_producto` - (`precio_producto` * 0.1)
+    7. Sino
+        1. Mostrar `precio_producto` - (`precio_producto` * 0.02)
+    8. Fin Si
+    9. Fin

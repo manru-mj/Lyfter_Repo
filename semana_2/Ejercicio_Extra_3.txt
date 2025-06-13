@@ -1,0 +1,35 @@
+3. Cree un algoritmo que le pregunte al usuario por el sexo de 6 personas, ingresando 1 si es mujer o 2 si es hombre, y muestre al final el porcentaje de mujeres y hombres.
+    1. *Ejemplos*:
+        1. 1, 1, 1, 2, 2, 2 → 50% mujeres y 50% hombres
+        2. 1, 1, 2, 2, 2, 2 → 33.3% mujeres y 66.6% hombres
+        3. 1, 1, 1, 1, 1, 2 → 84.4% mujeres y 16.6% hombres
+- Resolución
+    1. Inicio
+    2. Definir `contador`
+    3. Definir `numero`
+    4. Definir `hombres`
+    5. Definir `mujeres`
+    6. `contador` = 1
+    7. `mujeres` = 0
+    8. `hombres` = 0
+    9. Mostrar “Ingrese el sexo de 6 personas, use 1 si es mujer y 2 si es hombre”
+    10. Mientras que  (`contador`<= 6) 
+        1. Mostrar “Ingrese el sexo de la persona ”
+        2. Mostrar `contador`
+        3. Pedir `numero`
+        4. Si (`numero` < 1 o `numero` > 2) entonces
+            1. Mostrar “El número ingresado no es válido”
+        5. Sino 
+            1.  Si (numero == 1) entonces
+                - `mujeres` = `mujeres` +1
+                - `contador` = `contador` + 1
+            2. Sino
+                - `hombres` = `hombres` + 1
+                - `contador` = `contador` + 1
+            3. Fin Si
+    11. Fin Mientras
+    12. Mostrar (`mujeres` / (`mujeres` +`hombres`)) * 100
+    13. Mostrar “% mujeres y ”
+    14. Mostrar (`hombres` / (`mujeres` +`hombres`)) * 100
+    15. Mostrar “% hombres”
+    16. Fin

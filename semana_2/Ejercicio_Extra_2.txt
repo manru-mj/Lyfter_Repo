@@ -1,0 +1,13 @@
+2. Cree un algoritmo que le pida al usuario una velocidad en km/h y la convierta a m/s. Recuerda que `1 km == 1000m` y `1 hora == 60 minutos * 60 segundos`.
+    1. *Ejemplos*:
+        1. 73 → 20.27
+        2. 50 → 13.88
+        3. 120 → 33.33
+- Resolución
+    1. Inicio
+    2. Definir `velocidad`
+    3. Mostrar “Ingrese la velocidad en km/h: “
+    4. Pedir `velocidad`
+    5. Mostrar “La velocidad en m/s es: ”
+    6. Mostrar `velocidad` * (1000/3600)
+    7. Fin
