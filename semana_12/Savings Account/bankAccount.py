@@ -15,7 +15,7 @@ class SavingsAccount(BankAccount):
         self.min_balance = min_balance
         self.balance = min_balance
         print(f"A new savings account has been opened. A mimimum balance of {self.min_balance} is required to maintain the account.")
-        self.print_balance
+        self.print_balance()
 
     def print_balance(self):
         print(f'Balance: {self.balance}')
