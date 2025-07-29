@@ -1,6 +1,5 @@
 from datetime import date, datetime
 
-
 class User:
     def __init__(self, name, date_of_birth):
         self.name = name
@@ -18,7 +17,7 @@ class User:
 def adults_only(func):
     def wrapper(user, *args):
         if user.age < 18:
-            print(f"{user.name} is not an adult (is {user.age} years old)")
+            raise ValueError(f"{user.name} is not an adult (is {user.age} years old)")
         else:
             return func(user, *args,)
     return wrapper    
@@ -28,9 +27,15 @@ def admit_user(user):
     print(f"New user {user.name} has been admitted")
 
 
-
 underage_user = User("Sergio", date(2023,11,30))
 adult_user =  User("Manrique", date(1982,7,7))
 
-admit_user(underage_user)
-admit_user(adult_user)
+try:
+    admit_user(underage_user)
+except ValueError as e:
+    print(f"Rejected: {e}")
+
+try:
+    admit_user(adult_user)
+except ValueError as e:
+    print(f"Rejected: {e}")

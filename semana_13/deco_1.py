@@ -3,7 +3,7 @@ def print_params_and_return(func):
         print(f'Function: {func.__name__}')
         print(f'Parameters: {args}')
         result = func(*args)
-        print(f'{func.__name__} returned {result}')
+        return result
     return wrapper
 
 
@@ -24,7 +24,8 @@ def multiplication(*args):
     return sum_total
 
 
-addition(1,2,3)
-multiplication(4,2,3)
+result = addition(1,2,3)
+print(f'Result:{result}')
 
-
+result=multiplication(4,2,3)
+print(f'Result:{result}')
