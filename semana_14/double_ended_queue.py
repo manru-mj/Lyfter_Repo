@@ -10,17 +10,17 @@ class Double_Ended_Queue:
         self.penultimate = None
 
 
-    def push_right(self,new_data):
+    def push_right(self, new_data):
         current_node = Node(new_data)
-        
-        if self.head is None: #if empty
+
+        if self.head is None:  #if empty
             self.head = self.tail = current_node
             self.penultimate = None
-        elif self.head.next is None: # there is only one node
+        elif self.head.next is None:  # there is only one node
             self.penultimate = self.head
             self.head.next = current_node
             self.tail = current_node
-        else:# more than one node
+        else:  # more than one node
             self.penultimate = self.tail
             self.tail.next = current_node
             self.tail = current_node
@@ -32,19 +32,28 @@ class Double_Ended_Queue:
         if self.head is None: #if empty
             self.head = self.tail = current_node
             self.penultimate = None
-        else: # there is only one node
+        elif self.head.next is None: # there is only one node
             current_node.next = self.head
             self.head = current_node
-            
-            if self.head.next == self.tail: #if there was only one node
-                self.penultimate = self.head.next
+            self.penultimate = self.head
+            self.tail = self.head.next
+        else: # more than one node
+            current_node.next = self.head
+            self.head = current_node 
 
 
     def pop_left(self):
-        if self.head is not None:
-            self.head = self.head.next
-        else:
+        if self.head is None:
             print("Queue is empty")
+            return
+
+        if self.head == self.tail:  # there is only one node
+            self.head = self.tail = self.penultimate = None
+        else:  # more than one node
+            self.head = self.head.next
+            # when only 2 node left, there isn't penultimate
+            if self.head.next is None:
+                self.penultimate = None
 
 
     def pop_right(self):
