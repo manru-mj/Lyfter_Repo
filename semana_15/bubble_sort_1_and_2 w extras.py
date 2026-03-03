@@ -1,0 +1,41 @@
+def bubble_sort(num_list):
+    swap_count = 0
+    rounds_count = 0
+    for j in range(0, len(num_list)-1):
+        for i in range(0, len(num_list)-1-j):
+            temp = num_list[i]
+            if num_list[i] > num_list[i+1]:
+                swap_count += 1
+                num_list[i] = num_list[i+1]
+                num_list[i+1] = temp
+            rounds_count += 1
+    
+    print(f"Sorted List:{num_list}")
+    print(f"Iterations:{rounds_count}")
+    print(f"Swaps count:{swap_count}")
+    
+    return num_list
+
+def inverted_bubble_sort(num_list):
+    swap_count = 0
+    rounds_count = 0
+    for j in range(0, len(num_list)-1):
+        for i in range(0, len(num_list)-1-j):
+            temp = num_list[i]
+            if num_list[i] < num_list[i+1]:
+                swap_count += 1
+                num_list[i] = num_list[i+1]
+                num_list[i+1] = temp
+            rounds_count += 1
+    
+    print(f"Sorted List:{num_list}")
+    print(f"Iterations:{rounds_count}")
+    print(f"Swaps count:{swap_count}")
+    
+    return num_list
+
+my_list = [11,5,15,7,2,8,12,10,4,1,9,3,6,14,13]
+
+print(my_list)
+bubble_sort(my_list)
+inverted_bubble_sort(my_list)
