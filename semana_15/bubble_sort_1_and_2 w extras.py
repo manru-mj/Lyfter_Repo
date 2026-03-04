@@ -20,12 +20,12 @@ def inverted_bubble_sort(num_list):
     swap_count = 0
     rounds_count = 0
     for j in range(0, len(num_list)-1):
-        for i in range(0, len(num_list)-1-j):
+        for i in range(len(num_list)-1, j, -1):
             temp = num_list[i]
-            if num_list[i] < num_list[i+1]:
+            if num_list[i] < num_list[i-1]:
                 swap_count += 1
-                num_list[i] = num_list[i+1]
-                num_list[i+1] = temp
+                num_list[i] = num_list[i-1]
+                num_list[i-1] = temp
             rounds_count += 1
     
     print(f"Sorted List:{num_list}")
@@ -35,7 +35,11 @@ def inverted_bubble_sort(num_list):
     return num_list
 
 my_list = [11,5,15,7,2,8,12,10,4,1,9,3,6,14,13]
-
-print(my_list)
+print(f"List to sort: {my_list}")
+print("Bubble Sort:")
 bubble_sort(my_list)
+
+my_list = [11,5,15,7,2,8,12,10,4,1,9,3,6,14,13]
+print(f"List to sort: {my_list}")
+print("Bubble Sort right to left:")
 inverted_bubble_sort(my_list)
