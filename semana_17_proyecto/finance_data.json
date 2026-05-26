@@ -1,0 +1,101 @@
+{
+    "categories": [
+        {
+            "name": "Salary",
+            "color": "#80ff80",
+            "type": "income"
+        },
+        {
+            "name": "Sales",
+            "color": "#00ff80",
+            "type": "income"
+        },
+        {
+            "name": "Utilities",
+            "color": "#ffff00",
+            "type": "expense"
+        },
+        {
+            "name": "Food",
+            "color": "#f8ec07",
+            "type": "expense"
+        },
+        {
+            "name": "Clothes",
+            "color": "#ffb08a",
+            "type": "expense"
+        },
+        {
+            "name": "Hobbies",
+            "color": "#3e9eff",
+            "type": "expense"
+        },
+        {
+            "name": "Over-time",
+            "color": "#00ff40",
+            "type": "income"
+        }
+    ],
+    "transactions": [
+        {
+            "date": "15/01/2026",
+            "title": "I January Salary",
+            "amount": 450000.0,
+            "category": {
+                "name": "Salary",
+                "color": "#80ff80",
+                "type": "income"
+            }
+        },
+        {
+            "date": "31/01/2026",
+            "title": "II January Salary",
+            "amount": 450000.0,
+            "category": {
+                "name": "Salary",
+                "color": "#80ff80",
+                "type": "income"
+            }
+        },
+        {
+            "date": "15/01/2026",
+            "title": "Overtime January",
+            "amount": 100000.0,
+            "category": {
+                "name": "Over-time",
+                "color": "#00ff40",
+                "type": "income"
+            }
+        },
+        {
+            "date": "10/01/2026",
+            "title": "MS B46",
+            "amount": -25000.0,
+            "category": {
+                "name": "Hobbies",
+                "color": "#3e9eff",
+                "type": "expense"
+            }
+        },
+        {
+            "date": "16/01/2026",
+            "title": "Adidas Samba",
+            "amount": -70000.0,
+            "category": {
+                "name": "Clothes",
+                "color": "#ffb08a",
+                "type": "expense"
+            }
+        },
+        {
+            "date": "17/01/2026",
+            "title": "Groceries of the month",
+            "amount": -150000.0,
+            "category": {
+                "name": "Food",
+                "color": "#f8ec07",
+                "type": "expense"
+            }
+        }
+    ]
+}
