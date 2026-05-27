@@ -1,0 +1,18 @@
+Requerimientos que no se como desarrollar - investigados
+
+- Proceso de crear la tabla de datos - investigado
+- Me di cuenta de que si quiero usar un drop para las categorías debería mostrar solo las de cada tipo (income/expense) a este punto debo modificar la clase Category para incluir el tipo de transacción
+
+-limpiar los forms despues de agregar category, expense o income
+-devolver el focus al primer input
+- problema para refrescar la tabla después de agregar income: separe el código para cargar la lista que alimenta la tabla en una función independiente
+
+ajustes visuales investif¿gados
+-expandir la ventana principal y que la tabla se ajuste
+mostrar los montos en formato contable y alineados a la derecha, el formato lo logré la alineación a la derecha parece ser una limitación de  pysimplegui
+
+Al filtrar, neceitaba que el drop category name se actualizara mostrando solo las categorías según se elegia expense o income, lo cual no sucedia. lo resolvi con el atributo enable_events
+
+Al exportar me mostraba las transacciones en un orden distinto al mostrado en la tabla que es por fecha, lo que hice fue sortear las transacciones dentro del método de exportar a CSV, y tuve que importar datetime en data_persistence
+
+Al mostrar los montos de ingresos, gastos y el balance en el archivo CSV, los muestra entre comillas, estuve tratando de que lo mostrara sin comillas pero me pareció un detalle menor ya que necesitaba entregar el proyecto para recibir feedback.
