@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from data_persistence import save_data, export_to_csv
 from datetime import datetime   
 
@@ -183,21 +183,33 @@ def run_main_window(manager):
 
     while True:
         event, values = window.read()
+
         if event == sg.WIN_CLOSED or event == 'CLOSE':
+            save_data(manager, file_name)
             break
 
         if event == 'ADD_CATEGORY':
             run_add_category_window(manager)
         
-        if event == 'ADD_INCOME':
-            run_add_income_window(manager)
-            refresh_table(window,manager)
-            current_transactions = manager.get_transactions()
+        if event == 'ADD_INCOME':            
+            income_categories = manager.get_category_names_by_type('income')
 
-        if event == 'ADD_EXPENSE':
-            run_add_expense_window(manager)
-            refresh_table(window,manager)
-            current_transactions = manager.get_transactions()
+            if len(income_categories) <= 1:
+                sg.popup("Please create at least one income category first.")
+            else:            
+                run_add_income_window(manager)
+                refresh_table(window,manager)
+                current_transactions = manager.get_transactions()
+
+        if event == 'ADD_EXPENSE':            
+            income_categories = manager.get_category_names_by_type('expense')
+
+            if len(income_categories) <= 1:
+                sg.popup("Please create at least one expense category first.")
+            else:            
+                run_add_expense_window(manager)
+                refresh_table(window,manager)
+                current_transactions = manager.get_transactions()
         
         if event == 'CATEGORY_TYPE':
             category_names = manager.get_category_names_by_type(values['CATEGORY_TYPE'])

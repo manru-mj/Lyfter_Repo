@@ -1,11 +1,9 @@
 ﻿Date,Title,Amount,Category,Type
-10/01/2026,MS B46,"-25,000.00",Hobbies,Expense
 15/01/2026,I January Salary,"450,000.00",Salary,Income
 15/01/2026,Overtime January,"100,000.00",Over-time,Income
-16/01/2026,Adidas Samba,"-70,000.00",Clothes,Expense
 31/01/2026,II January Salary,"450,000.00",Salary,Income
 
 Totals
 "Income: 1,000,000.00"
-"Expenses: -95,000.00"
-"Net Balance: 905,000.00"
+Expenses: 0.00
+"Net Balance: 1,000,000.00"
