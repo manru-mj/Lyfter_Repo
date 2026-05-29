@@ -16,7 +16,7 @@ def run_add_expense_window(manager):
     sg.theme('black')
 
     expense_form_layout = [
-        [sg.Text('Date',size=8),sg.Input(key='DATE',size=14,default_text='dd/mm/yyyy')],
+        [sg.Text('Date',size=8),sg.Input(key='DATE',size=14),sg.CalendarButton(button_text='📆',target='DATE',format='%d/%m/%Y')],
         [sg.Text('Title',size=8),sg.Input(key='TITLE')],
         [sg.Text('Amount',size=8),sg.Input(key='AMOUNT')],
         [sg.Text('Category',size=8),sg.DropDown(key='CATEGORY',values=cat_list)],
@@ -43,7 +43,7 @@ def run_add_expense_window(manager):
                 save_data(manager,file_name)
                 sg.popup("Expense added successfully!")
 
-                window['DATE'].update('dd/mm/yyyy')
+                window['DATE'].update('')
                 window['TITLE'].update('')
                 window['AMOUNT'].update('')
                 window['CATEGORY'].update('')                
@@ -66,7 +66,7 @@ def run_add_income_window(manager):
     sg.theme('black')
 
     expense_form_layout = [
-        [sg.Text('Date',size=8),sg.Input(key='DATE',size=14,default_text='dd/mm/yyyy')],
+        [sg.Text('Date',size=8),sg.Input(key='DATE',size=14),sg.CalendarButton(button_text='📆',target='DATE',format='%d/%m/%Y')],
         [sg.Text('Title',size=8),sg.Input(key='TITLE')],
         [sg.Text('Amount',size=8),sg.Input(key='AMOUNT')],
         [sg.Text('Category',size=8),sg.DropDown(key='CATEGORY',values=cat_list)],
@@ -93,7 +93,7 @@ def run_add_income_window(manager):
                 save_data(manager,file_name)
                 sg.popup("Income added successfully!")
 
-                window['DATE'].update('dd/mm/yyyy')
+                window['DATE'].update('')
                 window['TITLE'].update('')
                 window['AMOUNT'].update('')
                 window['CATEGORY'].update('')                
@@ -162,7 +162,7 @@ def run_main_window(manager):
     sg.theme('black')
 
     layout = [
-        [sg.Text('Start date:'),sg.Input(key='START_DATE',size=10, default_text='dd/mm/yyyy'),sg.Text('End date:'),sg.Input(key='END_DATE',size=10,default_text='dd/mm/yyyy'),sg.Text('Category Type:'),sg.DropDown(key='CATEGORY_TYPE',values=('','income','expense'),size=7,enable_events=True),sg.Text('Category Name:'),sg.DropDown(key='CATEGORY_NAME',values=category_names,size=10)],
+        [sg.Text('Start date:'),sg.Input(key='START_DATE',size=10),sg.CalendarButton(button_text='📆',target='START_DATE',format='%d/%m/%Y'),sg.Text('End date:'),sg.Input(key='END_DATE',size=10),sg.CalendarButton(button_text='📆',size=(2,1),target='END_DATE',format='%d/%m/%Y'),sg.Text('Category Type:'),sg.DropDown(key='CATEGORY_TYPE',values=('','income','expense'),size=7,enable_events=True),sg.Text('Category Name:'),sg.DropDown(key='CATEGORY_NAME',values=category_names,size=10)],
         [sg.Table(
         values = data,
         headings = headings,
@@ -202,9 +202,9 @@ def run_main_window(manager):
                 current_transactions = manager.get_transactions()
 
         if event == 'ADD_EXPENSE':            
-            income_categories = manager.get_category_names_by_type('expense')
+            expense_categories = manager.get_category_names_by_type('expense')
 
-            if len(income_categories) <= 1:
+            if len(expense_categories) <= 1:
                 sg.popup("Please create at least one expense category first.")
             else:            
                 run_add_expense_window(manager)
@@ -233,7 +233,7 @@ def run_main_window(manager):
                     values=data,
                     row_colors=row_colors
                 )
-            except Exception as e:
+            except Exception:
                 sg.popup(f"Filter Error: INVALID DATE!")
     
         if event == 'EXPORT':
