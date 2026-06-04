@@ -37,8 +37,13 @@ class FinanceManager:
 
     def add_category(self,name:str, color:str,c_type:str):
         name = name.strip()
+        if name == '':
+            raise ValueError('Category name cannot be empty')
+
         color = color
         c_type = c_type.strip().lower()
+        if c_type == '':
+            raise ValueError('Please select a category type')
         
         if c_type not in ("expense", "income"):
             raise ValueError("Invalid category type")
@@ -88,8 +93,12 @@ class FinanceManager:
 
     def add_transaction(self, date: str, title: str, amount: str, category: str):
         title = title.strip()
+        if title == '':
+            raise ValueError('Transaction title cannot be empty')
+
         category = category.strip()
         category_obj = self._find_category(category)
+
         #Validate Date
         if not self.is_valid_date(date):
             raise ValueError("Invalid date format or future date")
@@ -131,11 +140,11 @@ class FinanceManager:
     def filter_transactions(self, start_date=None, end_date=None, category_name=None, category_type=None):
         
         # Ignore placeholder text
-        if start_date == 'dd/mm/yyyy':
-            start_date = ''
+        #if start_date == 'dd/mm/yyyy':
+        #    start_date = ''
 
-        if end_date == 'dd/mm/yyyy':
-            end_date = ''
+        #if end_date == 'dd/mm/yyyy':
+        #    end_date = ''
         
         #list of filtered transactions
         filtered = []
